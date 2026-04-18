@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Friend Message</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Optional: style the friend's image */
+    .friend-img {
+      width: 200px;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+  </style>
+  <script>
+    // Wait until DOM is loaded
+    window.onload = function() {
+      // Get message and image path from localStorage
+      const msg = localStorage.getItem("msg");
+      const imgSrc = localStorage.getItem("img");
+
+      // Set message text
+      document.getElementById("msg").innerText = msg ? msg : "No message found";
+
+      // Set image if exists
+      if(imgSrc) {
+        const imgElement = document.getElementById("friendImg");
+        imgElement.src = imgSrc;
+        imgElement.style.display = "block"; // make sure it's visible
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="card">
+    <h2>Your Message ❤️</h2>
+
+    <!-- Message text -->
+    <p id="msg"></p>
+
+    <!-- Friend image -->
+    <img id="friendImg" class="friend-img" style="display:none;" alt="Friend Image">
+
+    <br>
+    <a href="message.html"><button>⬅ Back</button></a>
+  </div>
+</body>
+</html>
